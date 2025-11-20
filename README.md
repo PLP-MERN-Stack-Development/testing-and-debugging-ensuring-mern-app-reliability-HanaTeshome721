@@ -68,13 +68,120 @@ mern-testing/
 - Cypress/Playwright: End-to-end testing framework
 - MongoDB Memory Server: In-memory MongoDB for testing
 
+## Testing Strategy
+
+A comprehensive testing strategy document is available in `TESTING_STRATEGY.md` which covers:
+- Testing pyramid approach
+- Unit, integration, and E2E testing methodologies
+- Debugging techniques
+- Best practices
+
+## Running Tests
+
+### Setup
+
+1. Install dependencies:
+   ```bash
+   npm run install-all
+   ```
+
+2. Set up test database:
+   ```bash
+   cd server
+   npm run setup-test-db
+   ```
+
+3. Create environment files:
+   - `server/.env` - For server configuration
+   - `client/.env` - For client configuration (optional)
+
+### Test Commands
+
+```bash
+# Run all tests
+npm test
+
+# Run only unit tests
+npm run test:unit
+
+# Run only integration tests
+npm run test:integration
+
+# Run only end-to-end tests
+npm run test:e2e
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Test Coverage
+
+The project aims for at least 70% code coverage across:
+- Statements: 70%
+- Branches: 60%
+- Functions: 70%
+- Lines: 70%
+
+Coverage reports are generated in the `coverage/` directory.
+
+## Project Structure
+
+```
+mern-testing/
+├── client/                 # React front-end
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── utils/          # Utility functions
+│   │   ├── tests/          # Client-side tests
+│   │   │   ├── unit/       # Unit tests
+│   │   │   └── integration/ # Integration tests
+│   │   └── App.jsx         # Main application component
+│   └── cypress/            # End-to-end tests
+├── server/                 # Express.js back-end
+│   ├── src/
+│   │   ├── controllers/   # Route controllers
+│   │   ├── models/         # Mongoose models
+│   │   ├── routes/         # API routes
+│   │   ├── middleware/     # Custom middleware
+│   │   └── utils/          # Utility functions
+│   └── tests/              # Server-side tests
+│       ├── unit/           # Unit tests
+│       └── integration/    # Integration tests
+├── jest.config.js          # Jest configuration
+├── cypress.config.js       # Cypress configuration
+└── package.json            # Root dependencies
+```
+
+## Features Implemented
+
+### Testing
+- ✅ Jest configuration for client and server
+- ✅ React Testing Library setup
+- ✅ Supertest for API testing
+- ✅ MongoDB Memory Server for integration tests
+- ✅ Cypress for E2E testing
+- ✅ Comprehensive unit tests
+- ✅ Integration tests for API endpoints
+- ✅ E2E tests for critical flows
+
+### Debugging
+- ✅ Error boundaries in React
+- ✅ Global error handler for Express
+- ✅ Structured logging with Morgan
+- ✅ Custom logger utility
+- ✅ Performance monitoring setup
+
 ## Submission
 
 Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
 1. Complete all required tests (unit, integration, and end-to-end)
 2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
+3. Document your testing strategy in `TESTING_STRATEGY.md`
 4. Include screenshots of your test coverage reports
 5. Demonstrate debugging techniques in your code
 

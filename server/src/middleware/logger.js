@@ -1,0 +1,40 @@
+const morgan = require('morgan');
+
+/**
+ * Custom logging middleware for request logging
+ */
+const requestLogger = morgan('combined', {
+  skip: (req, res) => {
+    // Skip logging for test environment
+    return process.env.NODE_ENV === 'test';
+  },
+});
+
+/**
+ * Custom logger utility
+ */
+const logger = {
+  info: (message, data = {}) => {
+    console.log(`[INFO] ${new Date().toISOString()} - ${message}`, data);
+  },
+  
+  error: (message, error = {}) => {
+    console.error(`[ERROR] ${new Date().toISOString()} - ${message}`, error);
+  },
+  
+  warn: (message, data = {}) => {
+    console.warn(`[WARN] ${new Date().toISOString()} - ${message}`, data);
+  },
+  
+  debug: (message, data = {}) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[DEBUG] ${new Date().toISOString()} - ${message}`, data);
+    }
+  },
+};
+
+module.exports = {
+  requestLogger,
+  logger,
+};
+

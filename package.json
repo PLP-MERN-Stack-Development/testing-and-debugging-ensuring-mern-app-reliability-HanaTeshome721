@@ -1,0 +1,28 @@
+{
+  "name": "mern-testing-assignment",
+  "version": "1.0.0",
+  "description": "MERN stack application with comprehensive testing",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "test": "jest",
+    "test:unit": "jest --testPathPattern=tests/unit",
+    "test:integration": "jest --testPathPattern=tests/integration",
+    "test:e2e": "cypress run",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "mern",
+    "testing",
+    "jest",
+    "cypress"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "cypress": "^13.6.0"
+  }
+}
+
